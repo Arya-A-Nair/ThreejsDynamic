@@ -21,24 +21,28 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
 
 const cylinder = new THREE.CylinderGeometry(2, 2, 10, 100);
-const cylinder2 = new THREE.CylinderGeometry(2, 0, 10, 100);
+const cylinder2 = new THREE.CylinderGeometry(2, 0, 5, 100);
 const material = new THREE.MeshStandardMaterial({
 	color: 0xff6347,
 });
+const hemisphere=new THREE.SphereGeometry(2)
 
 const cylinderMesh = new THREE.Mesh(cylinder, material);
 const cylinder2Mesh = new THREE.Mesh(cylinder2, material);
+const hemisphereMesh=new THREE.Mesh(hemisphere,material)
 cylinderMesh.position.set(0, 5, 0);
-cylinder2Mesh.position.set(0, -5, 0);
+cylinder2Mesh.position.set(0, -2.5, 0);
+hemisphereMesh.position.set(0,10,0)
 
-scene.add(cylinderMesh, cylinder2Mesh);
+scene.add(cylinderMesh, cylinder2Mesh,hemisphereMesh);
 
 // const pointLight = new THREE.PointLight(0xffffff);
 // pointLight.position.set(20, 0, 0);
 // scene.add(pointLight);
 
 const Spotlight = new THREE.AmbientLight("blue", 0.8);
-const gridHelper = new THREE.GridHelper(200, 50);
+const gridHelper = new THREE.GridHelper(200, 50,);
+
 scene.add(gridHelper, Spotlight);
 
 const controls = new OrbitControls(camera, renderer.domElement);
