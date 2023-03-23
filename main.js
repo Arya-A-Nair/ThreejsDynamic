@@ -39,15 +39,15 @@ scene.add(cylinderMesh, cylinder2Mesh,hemisphereMesh);
 // const pointLight = new THREE.PointLight(0xffffff);
 // pointLight.position.set(20, 0, 0);
 // scene.add(pointLight);
-
-const Spotlight = new THREE.AmbientLight("blue", 0.8);
+let color=0x1db8ce
+const Spotlight = new THREE.AmbientLight(color, 0.8);
 const gridHelper = new THREE.GridHelper(200, 50,);
 
 scene.add(gridHelper, Spotlight);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
-let color=0xff00ff
+
 
 document.querySelectorAll('input[type=color]').forEach(function(picker) {
 
@@ -60,7 +60,6 @@ document.querySelectorAll('input[type=color]').forEach(function(picker) {
   picker.addEventListener('change', function() {
     codeArea.innerHTML = picker.value;
     targetLabel.appendChild(codeArea);
-    console.log(picker.value)
     color=picker.value
   });
 });
